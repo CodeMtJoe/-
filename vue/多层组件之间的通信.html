@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+</head>
+<body>
+	<div id="container">
+		<div id="app">
+			<my_div ftitle='我今天心情不错' fimg="img/1.jpg"></my_div>
+			<my_div ftitle='hahaha' fimg="img/2.jpg"></my_div>
+		</div>
+		<!-- 子标题模版 -->
+		<template id="z_title">
+			<h2>{{ztitle}}</h2>
+		</template>
+		<!-- 子图片模版 -->
+		<template id="z_img">
+			<img :src="zimg" width="200">
+		</template>
+		<!-- 父模版 -->
+		<template id="parent">
+			<div>
+				<child1 :ztitle='ftitle'></child1>
+				<child2 :zimg="fimg"></child2>
+			</div>
+		</template>
+		
+	</div>
+	<script type="text/javascript" src="js/vue.min.js">
+		
+	</script>
+	
+	<script type="text/javascript">
+		//实例化子组件
+		let Child1=Vue.extend({
+			template:'#z_title',
+			props:['ztitle']
+		});
+		let Child2=Vue.extend({
+			template:"#z_img",
+			props:['zimg']
+		})
+		//注册全局父组件
+		Vue.component('my_div',{
+			template:'#parent',
+			props:['ftitle','fimg'],
+			components:{
+				'child1':Child1,
+				'child2':Child2
+			}
+			
+			
+		})
+		
+		
+		
+		new Vue({
+			el:'#app',
+			data:{
+				
+			}
+		})
+	</script>
+</body>
+</html>

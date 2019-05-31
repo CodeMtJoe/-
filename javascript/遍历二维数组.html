@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//遍历二维数组
+			var infos=[['小A','女',21,'大一'],
+				['小B','男',23,'大三'],
+				['小C','男',24,'大四'], 
+				['小D','女',21,'大一'],
+				['小E','女',22,'大四'], 
+				['小F','男',21,'大一'],
+				['小G','女',22,'大二'], 
+				['小H','女',20,'大三'],
+				['小I','女',20,'大一'],  
+				['小J','男',20,'大三']
+		
+		];
+		var len=infos.length;
+		var str='<table width="800" align="center" border="1">';
+		
+		for(var i=0;i<len;i++){
+			str+='<tr>';
+			for(var j=0;j<infos[i].length;j++){
+			str+='<td>'+infos[i][j]+'</td>';
+			};
+		};
+		str+='</tr>';
+		str+='</table>';
+		document.write(str);
+		</script>
+		<hr />
+		<table width="800" align="center" border="1">
+			<tr><td>1</td><td>1</td></tr>
+			<tr><td>1</td><td>1</td></tr>
+			
+		</table>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		
+		
+	</head>
+	<body>
+		<script type="text/javascript">
+		function count(){
+			//parseInt()函数可解析一个字符串,并返回一个整数。
+			var key1=parseInt( document.getElementById('txt1').value);
+			var key2=parseInt(document.getElementById('txt2').value);
+			var select=document.getElementById('select').value;
+			var sum=0;
+			switch(select){
+				case "+":
+					sum=key1+key2;
+					break;
+				case "-":
+					sum=key1-key2;
+					break;
+				case "*":
+					sum=key1*key2;
+					break;
+				case "/":
+					sum=key1/key2;	
+					break;
+			}
+			document.getElementById('txt3').value=sum;
+			
+		}
+		</script>
+		<h1>响应事件综合练习</h1>
+		<input type="text" id='txt1' />
+		
+		<select id="select">
+			<option value="+">+</option>
+			<option value="-">-</option>
+			<option value="*">*</option>
+			<option value="/">/</option>
+		</select>
+		
+		<input type="text" id="txt2"/>
+		<input type="button" value="=" onclick="count()" />
+		<input type="text" id="txt3" />
+
+		
+	</body>
+</html>

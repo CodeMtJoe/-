@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+</head>
+<body>
+	<script>
+		//获取字符串下标并截取
+		var str='我是编译技术部的莫天俊';
+		var startIndex=str.indexOf('莫');
+		var res=str.substr(startIndex);
+		document.write(res+'<br>');
+		//将字符串分割成数组,分隔符为|
+		var str1='星期一|星期二|星期三';
+		var arr=str1.split('|');
+		console.log(arr);
+		//将数组转化成字符串分隔符---
+		var res1=arr.join("---");
+		document.write(res1);
+		document.write('<hr>')
+		//将字符串的你好替换成hello
+		var str3='你好,莫天俊.你好,莫天俊.你好,莫天俊.';
+		//var reg=new RegExp('你好','gi');//利用正则表达式,g全局匹配 i区分大小写匹配 m多行匹配
+		//使用 // 就可以创建正则表达式
+		var reg=/你好/gi;
+		var res3=str3.replace(reg,'hello');
+		document.write(res3);
+		
+	</script>
+</body>
+</html>

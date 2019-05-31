@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>jquery下拉菜单</title>
+	<style type="text/css">
+		*{margin: ;padding: 0;list-style: none;}
+		li{
+			margin-top: 5px;
+			padding: 10px;
+		}
+		.warp>ul>li{
+			float: left;
+			background-color: #AFD0FF;
+			margin: 5px;
+		}
+		
+	</style>
+	<script type="text/javascript" src="js/jquery-1.12.4.js">
+		
+	</script>
+</head>
+<body>
+		<div class="warp">
+			<ul>
+			<li>
+				<a href="javascript:void(0);">一级菜单</a>
+				<ul  style="display: none;">
+					<li><a href="">二级菜单</a></li>
+					<li><a href="">二级菜单</a></li>
+					<li><a href="">二级菜单</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="javascript:void(0);">一级菜单</a>
+				<ul  style="display: none;">
+					<li><a href="">二级菜单</a></li>
+					<li><a href="">二级菜单</a></li>
+					<li><a href="">二级菜单</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="javascript:void(0);">一级菜单</a>
+				<ul  style="display: none;">
+					<li><a href="">二级菜单</a></li>
+					<li><a href="">二级菜单</a></li>
+					<li><a href="">二级菜单</a></li>
+				</ul>
+			</li>	
+		</ul>
+		</div>
+		<script type="text/javascript">
+			$(function(){
+				$('.warp>ul>li').mouseenter(function(){
+					$(this).children("ul").show()
+				})
+				$('.warp>ul>li').mouseleave(function(){
+					$(this).children("ul").hide()
+				})
+			})
+		</script>
+</body>
+</html>

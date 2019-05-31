@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" Content="text/html; charset=utf-8" />
+<title>javascript</title>
+<style type="text/css">
+body{font-size:12px;}
+#txt{
+    height:400px;
+    width:600px;
+	border:#333 solid 1px;
+	padding:5px;}
+p{
+	line-height:18px;
+	text-indent:2em;}
+</style>
+</head>
+<body>
+  <h2 id="con">新媒体技术中心</H2>
+  <div id="txt"> 
+     <h5>关于新媒体技术中心编译设计部学习计划</h5>
+        <p>1. 学习WEb网页设计,HTML.css3.JavaScript</p>
+        <p>2. 利用学过的网页基础设计一个预约系统前端页面。</p>
+        <p>3. 学习JavaScript,让网页呈现各种动态效果。</p>
+  </div>
+  <form>
+  <!--当点击相应按钮，执行相应操作，为按钮添加相应事件-->
+    <input type="button" value="改变颜色" onclick="ChanColor()">  
+    <input type="button" value="改变宽高" onclick="ChanWH()" >
+    <input type="button" value="隐藏内容" onclick="Chancon()" >
+    <input type="button" value="显示内容" onclick="ChanBcon()">
+    <input type="button" value="取消设置"  onclick="qxsz()()">
+  </form>
+  <script type="text/javascript">
+//定义"改变颜色"的函数
+	var char=document.getElementById("txt");
+	function ChanColor(){
+		char.style.color='red';
+	}
+
+//定义"改变宽高"的函数
+	function ChanWH(){
+		char.style.width="500px";
+		char.style.height="500px";
+		
+	}
+
+//定义"隐藏内容"的函数
+	function Chancon(){
+		char.style.display='none';
+		
+	}
+
+//定义"显示内容"的函数
+	function ChanBcon(){
+		char.style.display='block';
+		
+	}
+
+
+//定义"取消设置"的函数
+	function qxsz(){
+		var conf=confirm("是否取消设置?");
+		if(conf==true){
+			char.removeAttribute('style');
+		}
+	}
+
+
+  </script>
+</body>
+</html>

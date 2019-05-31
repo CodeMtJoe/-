@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<style type="text/css">
+		div{
+			display: inline-block;
+		}
+		.bg1{
+			width: 30px;
+			height: 30px;
+			
+		}
+		.bg2{
+			width: 30px;
+			height: 30px;
+			
+		}
+		.bg3{
+			width: 30px;
+			height: 30px;
+			
+		}
+	</style>
+</head>
+<body>
+		<div class="bg1" style="background-color: red;"></div>
+		<div class="bg2" style="background-color:  #002DFF;"></div>
+		<div class="bg3"  style="background-color:  #008800;"></div>
+	<script type="text/javascript">
+		divObj=document.getElementsByTagName("div");
+		//console.log(divObj);
+		var divLen=divObj.length;
+		for(var i=0;i<divLen;i++){
+			divObj[i].onclick=function(){
+				var divColor=this.style.backgroundColor;
+				document.body.style.backgroundColor=divColor;
+			}
+		}
+	</script>
+</body>
+</html>

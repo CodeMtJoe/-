@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//（循环，分析）一张纸的厚度是0.01毫米，则该纸对折30次后是多厚（据说超过珠穆朗玛峰的高度），反过来，一张纸对折几次后，就超过1米厚了？
+		var hd=0.01/1000;
+		for(var i=1;i<=30;i++){
+			hd=hd*2;
+			if(hd>1&&hd<2){
+				document.write('对折次'+i+'后厚度超过1米');
+			}
+		}
+		document.write('对折30次后是'+hd+"米");
+		document.write('<hr>');
+		document.write('<h1>鸡与兔</h1>');
+		for(var j=1;j<34;j++){
+			var tu=35-j;
+			if(j*2+tu*4==94){
+				document.write('鸡:'+j+'<br/>'+'兔:'+tu);
+				break;
+			}
+		}
+
+
+
+
+
+
+// 		12、假设某人有100，000现金。每经过一次路口需要进行一次交费。..
+// 交费规则为当他现金大于50，000时每次需要交5%如果现金小于等于50，000时每次交5000请写一程序计算此人可以经过多少次这个路口.
+
+
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<style type="text/css">
+		body{
+			margin: 100px;
+		}
+		
+			
+	</style>
+</head>
+
+<body>
+	<canvas id="canvas">当前的浏览器不支持该版本!</canvas>
+	<script type="text/javascript" src="../js/jquery-1.12.4.js">
+		
+	</script>
+	<script type="text/javascript" src="../js/underscore-min.js">
+		
+	</script>
+	<script type="text/javascript">
+		$(function(){
+			//获取当前画布
+			let canvas=$('#canvas')[0];
+			let ctx=canvas.getContext('2d');
+			
+			canvas.width=600;canvas.height=600;
+			canvas.style.backgroundColor="#000";
+			//创建小球类
+			class Ball{
+					constructor(x,y,color) {
+					    this.x=x;
+						this.y=y;
+						this.color=color;
+						this.r=4;
+					}
+					render(){
+						ctx.save()//保存当前环境的状态
+						ctx.beginPath();//起始一条路径，或重置当前路径
+						ctx.arc(this.x,this.y,this.r,0,Math.PI*2);//创建弧/曲线（用于创建圆形或部分圆）
+						ctx.fillStyle=this.color;//设置或返回用于填充绘画的颜色、渐变或模式
+						ctx.fill()//绘制当前绘图(路径)
+						ctx.restore();//返回之前保存过的路径状态和属性
+						
+					}
+			}
+			class moverBall extends Ball{
+				constructor(x,y,color) {
+				    super(x,y,color);
+					this.dX=_.random(-5,5);
+					this.dY=_.random(-5,5);
+					this.dR=_.random(1,3);
+				}
+				upDate(){
+					this.x+=this.dX;
+					this.y+=this.dY;
+					this.r-=this.dR;
+					if(this.r<0){
+						this.r=0;
+					}
+				}
+				
+			}
+			
+			let ballArr=[];
+			let colorArr=['yellow','red','blue','green','pink','orange'];
+			canvas.addEventListener('mousemove',function(e){
+				ballArr.push(new moverBall(e.offsetX,e.offsetY,colorArr[_.random(0,colorArr.length-1)]));
+				//console.log(ballArr);
+				
+			})
+			
+			//开始定时器
+			setInterval(function(){
+				ctx.clearRect(0,0,canvas.width,canvas.height);
+				for(let i=0;i<ballArr.length;i++){
+					ballArr[i].render();
+					ballArr[i].upDate();
+				}
+			},50)
+			
+			
+			
+			
+
+			
+		})
+	
+		
+	</script>
+</body>
+</html>

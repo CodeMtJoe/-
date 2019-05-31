@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+</head>
+<body>
+	<lable>用户名:</lable><input onblur="userName_onblur()"  type="text"  id="username" value="" /><span id="yz_usr"></span><br>
+	<lable>密&nbsp;&nbsp;&nbsp;&nbsp;码:</lable><input onblur="passWord_onblur()" type="password"  id="password" value="" /><span id="yz_psd"></span>
+	<br><button type="button" id="btn" onclick="checkFrom()">提交</button>
+	<script type="text/javascript">
+		function $(id){
+			return document.getElementById(id);
+		}
+		var username=$('username');
+		var password=$('password');
+		var yz_usr=$('yz_usr'),yz_psd=$('yz_psd');
+		function checkUser(user){
+			var arr=["!","@","#","$"];
+			for(var i=0;i<user.length;i++){
+				for(var j=0;j<arr.length;j++){
+					if(user[i]==arr[j]){
+						return false;
+					}
+				}
+			}
+			return true;
+		}
+		
+			
+		
+		function userName_onblur(){
+			
+			var usernameValue=username.value;
+			var usernameLen=username.value.length;
+			if(usernameLen==0){
+				yz_usr.innerHTML='<font color="#f00">用户名不能为空</font>';
+				return false;
+			}else if(usernameLen<5||usernameLen>16){
+				yz_usr.innerHTML='<font color="#f00">用户名长度必须在5-16个字符之间</font>';
+				return false;
+				
+			}else if(!checkUser(usernameValue)){
+				yz_usr.innerHTML='<font color="#f00">用户名存在特殊符号</font>';
+				return false;
+			}else{
+				yz_usr.innerHTML='<font color="#00f">用户名合法</font>';
+				return true;
+			}
+		}
+		function passWord_onblur(){
+			var passwordValue=password.value;
+			var passwordLen=password.value.length;
+			if(passwordLen==0){
+				yz_psd.innerHTML='<font color="#f00">密码不能为空</font>';
+				return false;
+			}else if(passwordLen<5||passwordLen>20){
+				yz_psd.innerHTML='<font color="#f00">密码长度必须在5-20个字符之间</font>'
+				return false;
+			}else{
+				yz_psd.innerHTML='<font color="#00f">密码合法</font>';	
+				return true;
+			}
+				
+		}
+		function checkFrom(){
+			userName_onblur();
+			passWord_onblur();
+			if(userName_onblur()&&passWord_onblur()){
+				alert('恭喜你注册成功!')
+				return true;
+			}else{
+				alert('注册失败');
+			}
+		}
+	</script>
+</body>
+</html>

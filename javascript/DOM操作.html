@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DOM操作</title>
+	<style>
+		.before{
+			color: red;
+			font-size: 100px;
+		}
+		.after{
+			color: #9AA4FF;
+			font-size: 50px;
+		}
+		
+		
+	</style>
+</head>
+<body>
+	<p id="1">hahaha</p>
+	<p id="coon">我是谁</p>
+	<h2 id="2">通过JAvaScript改变属性</h2>
+	<h2 id="con" >点击按钮显示或隐藏我吧!</h2>
+	<button id='but' type="button"  onclick="xsyc()">点击我</button>
+	<p id= "change" class="before">通过JavaScript修改ClassName</p>
+	<script type="text/javascript">
+		//通过ID获取元素;
+		var char=document.getElementById("1")
+		document.write(char);
+		document.write('<hr>');
+		//innerHTML 属性
+		// 	innerHTML 属性用于获取或替换 HTML 元素的内容。
+
+		// 语法:
+
+		// Object.innerHTML
+		var coon=document.getElementById("coon");
+		document.write('修改前:'+coon.innerHTML+'<br />');
+		coon.innerHTML='我在哪?';
+		document.write('修改后:'+coon.innerHTML+'<br />');
+		
+		
+		//通过JAvaScript改变属性
+		var ch2=document.getElementById('2');
+		ch2.style.color="blue";
+		ch2.style.backgroundColor='#ccc';
+		//显示和隐藏
+		function xsyc(){
+			
+			var xsyc=document.getElementById('con');
+			var obutton=document.getElementById('but');
+			if(xsyc.style.display=="none"){
+				xsyc.style.display="block";
+				obutton.innerHTML="隐藏";
+				
+			}else{
+				xsyc.style.display="none";
+				obutton.innerHTML="显示";
+			}
+		}
+		var ChanN=document.getElementById('change');
+		ChanN.className="after";
+
+
+	</script>
+	
+</body>
+</html>

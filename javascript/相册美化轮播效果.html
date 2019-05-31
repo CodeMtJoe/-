@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>图片轮播效果</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;list-style: none;}
+		#container{
+			overflow: hidden;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 100px;
+		}
+		#big_img{
+			width: 600px;
+			height: 400px;
+			background-color: #C0C0C0;
+			border:   #EEEEEE solid 5px;
+			padding-bottom: 110px;
+			-moz-box-shadow:1px 2px 20px #333333; -webkit-box-shadow:1px 2px 20px #333333; box-shadow:1px 2px 20px #333333;
+			
+		}
+		#big_img img{
+			width: 600px;
+			height: 400px;
+			cursor: pointer;
+		}
+		#sm_img li img{
+			border-radius: 10px;
+			width: 80px;
+			height: 80px;
+			
+			
+		}
+		#sm_img li{
+			float: left;
+			margin: 10px;
+			padding-left:15px ;
+			
+			
+		}
+		.onmous{
+			border: #6666BB solid 3px;
+			-moz-box-shadow:1px 2px 20px #333333; -webkit-box-shadow:1px 2px 20px #333333; box-shadow:1px 2px 20px #333333;
+			
+			
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div id="big_img">
+			
+			<img id="big_img-1" src="img/1.jpg" >
+		
+		<ul id="sm_img">
+			<li><a href=""><img  src="img/1.jpg" alt=""></a></li>
+			<li><a href=""><img src="img/2.jpg" alt=""></a></li>
+			<li><a href=""><img src="img/3.jpg" alt=""></a></li>
+			<li><a href=""><img src="img/4.jpg" alt=""></a></li>
+			<li><a href=""><img src="img/5.jpg"  alt=""></a></li>
+		</ul>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function $(id){
+			return document.getElementById(id);
+		}
+		var bigImg=$('big_img-1');	
+		var smimgList=$('sm_img').querySelectorAll("img");
+		var j=2;
+		var timr;
+		//封装函数
+		var changeImg=function(id){
+				for(var k=0;k<smimgList.length;k++){
+					smimgList[k].removeAttribute("class");
+				}
+				
+				smimgList[j-1].className='onmous';
+				
+				
+				id.src="img/"+j+".jpg";
+				j++;
+				if(j>5){
+					j=1;
+				}
+			
+		}
+		//延时器
+		timr=setInterval("changeImg(bigImg)",2000);
+		
+		//大图标
+		bigImg.onmouseover=function(){
+			clearInterval(timr);
+		}
+		bigImg.onmouseout=function(){
+			timr=setInterval("changeImg(bigImg)",2000);
+		}	
+		//小图标
+		for(var i=0;i<smimgList.length;i++){
+			smimgList[i].onmouseover=function(){
+				clearInterval(timr);
+				bigImg.src=this.src;
+				
+				this.className='onmous';
+			}
+			smimgList[i].onmouseout=function(){
+				this.className='';
+				timr=setInterval("changeImg(bigImg)",2000);
+			}
+			
+		}
+	</script>
+</body>
+</html>

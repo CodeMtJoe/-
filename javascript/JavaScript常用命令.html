@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JavaScript常用命令</title>
+	</head>
+	<body>
+		<script>
+			//输出命令
+			var char="hello world"
+			document.write("这是输出命令..."+'<br />'+char);
+			//警告
+			function Alert(){
+				alert("这是一个警告!");
+			}
+			//确认消息对话框
+			//confirm 消息对话框通常用于允许用户做选择的动作
+			function mess(){
+				var mess=confirm('你喜欢我吗?');
+				if(mess==true){
+					document.write("哈哈,我也喜欢你!😍");
+					window.open('http://www.mtjoe.cn');
+					
+				}else{
+					document.write("对不起是我想多了呜呜呜");
+				}
+					}
+			//提问对话框
+			function ask(){
+				var ask=prompt("请输入你的姓名:");
+				if(ask!=null){
+					alert('你好,'+ask);
+					
+				}else{
+					alert('你好我的朋友');
+				}
+			}
+				
+				
+				
+			
+		</script>
+		<input style="display: block;" type="button" name="button" onclick="Alert()" value="点击我呀!" />
+		<input type="button" name="button" onclick="mess()" value="确认消息对话框" />
+		<input type="button" name="button" onclick="ask()" value="提问对话框" />
+		
+	</body>
+</html>

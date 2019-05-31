@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>for循环</title>
+	<style type="text/css">
+		table{
+			border-collapse: collapse;
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		// 1-100之间的和
+		var a=0
+		for(var i=1;i<=100;i++){
+		 a=a+i;
+		}
+		document.write(a);
+		document.write("<hr>");
+		//5的阶乘 
+		var result;
+		for(var i=5;i>=1;i--){
+			result=5*i
+			document.write("5x"+i+"="+result+"<br>");
+		}
+		//恶心的游戏数字7
+		for(var i=1;i<60;i++){
+			if (i%7!=0 && i&10!=7) {//能被7整除且个数不能为7
+				console.log(i);//控制台输出
+			}
+		}
+		document.write("<hr>");
+		//输出一个十行三列的表格且表格有隔行变色的效果
+		var str='<table width="800" align="center" border="1">';
+		for(var i=1;i<=10;i++){
+			if(i%2==0){
+			str+='<tr style="background-color:#ccc;"><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td></tr>'
+			}else{
+			str+='<tr><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td></tr>';
+				}
+		}
+		str+='</table>';
+		document.write(str);
+		document.write('<hr>');
+
+		//输出一个9行9列的表格
+		var str='<table width="800" align="center" border="1">';
+		for(var i=1;i<=9;i++){
+		str+='<tr>';
+		for(var j=1;j<=9;j++){
+			str+='<td>&nbsp;</td>';
+		}
+		str+='</tr>';
+	}
+		str+='</table>';
+		document.write(str);
+		document.write('<hr>');
+		//九九乘法表
+		document.write('<h1>九九乘法表</h1>');
+		str='<table width="800" align="center" border="1">';
+		for(var i=1;i<=9;i++){
+			str+='<tr>';
+
+			for(var j=1;j<=i;j++){
+				//var result=i*j;
+				str+='<td>'+j+'&times'+i+'='+(i*j)+'</td>';
+			}
+			str+='</tr>';	
+		}
+		str+='</table>';
+		document.write(str);
+		document.write('<hr>');
+		//Whlie循环,do...while循环
+		document.write('<h1>Whlie循环九九乘法表</h1>');
+		var i=1;
+		var str='<table width="800" align="center" border="1" rules="all">';
+		while(i<=9){
+			str+='<tr>'
+			var j=1;
+			while(j<=i){
+				str+='<td>'+j+'&times'+i+'='+(j*i)+'</td>';
+				j++;
+			}
+			str+='</tr>';
+			i++;
+		}
+		str+='</table>';
+		document.write(str);
+		document.write('<hr>');
+		//do...while循环 先执行一次循环体,再判断条件条件是否成立,成立继续执行,不成立结束do...While循环.
+
+
+		//提升循环的效率用终止
+		//关键字:continue break
+
+		for(var i=1;i<=10;i++){
+			if(i==5){
+				break;
+			}
+			document.write(i+'<br />');
+		}
+		document.write('<hr>');
+		for(var i=1;i<=10;i++){
+			if(i==5){
+				continue;
+			}
+			document.write(i+'<br />');
+		}
+
+
+	</script>
+	
+		
+	</table>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>本地录入系统</title>
+	<style type="text/css">
+		#checkin{
+			margin: 50px auto;
+			width: 600px;
+		}
+		table{
+			margin-top: 20px;
+			width: 600px;
+			background-color:#E6F5FF;
+			text-align: center;
+		}
+		fieldset{
+			border: 2px solid orange;
+			
+		}
+		fieldset input{
+			height: 15px;
+			margin: 10px 0;
+		}
+		thead{
+			background-color: orange;
+		}
+	</style>
+</head>
+<body>
+	<div id="checkin">
+	<fieldset >
+		<!-- 登记录入 -->
+		<legend>俊哥录入系统</legend>
+			<div>
+				<span>姓名:</span>
+				<input type="text" v-model="addData.name">
+			</div>
+			<div>
+				<span>性别:</span>
+				<select v-model="addData.sex">
+					<option value ="男">男</option>
+					<option value ="女" >女</option>
+				</select>
+			</div>		
+			<div>
+				<span>年龄:</span>
+				<input type="text" size="2" v-model="addData.age">
+			</div>
+			<div>
+				<span>手机:</span>
+				<input type="text" v-model="addData.phone" >
+			</div>
+			<button type="button" @click="checkIn()">登记</button>
+		</fieldset>
+		<!-- 数据展示 -->
+		<table>
+			<thead>
+				<tr>
+					<td>姓名</td>
+					<td>性别</td>
+					<td>年龄</td>
+					<td>手机</td>
+					<td>修改</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="(i,index) in person">
+					<td>{{i.name}}</td>
+					<td>{{i.sex}}</td>
+					<td>{{i.age}}</td>
+					<td>{{i.phone}}</td>
+					<td><button type="button" @click="checkOut(index)">删除</button></td>
+				</tr>
+			</tbody>
+			
+		</table>
+		
+	</div>
+	<script type="text/javascript"src="js/vue.min.js"> 
+		
+	</script>
+	<script type="text/javascript">
+		new Vue({
+			el:'#checkin',
+			data:{
+				person:[
+					{name:'莫天俊',sex:'男',age:18,phone:'13066479359'},
+					{name:'彭于晏',sex:'男',age:28,phone:'13061239359'},
+					{name:'莫天俊',sex:'男',age:18,phone:'13066479359'},
+					{name:'莫天俊',sex:'男',age:18,phone:'13066479359'},
+					{name:'莫天俊',sex:'男',age:18,phone:'13066479359'},
+					
+				],
+				addData:{name:'',sex:'男',age:0,phone:''}
+			},
+			methods:{
+				checkIn(){
+					//判断
+					if(this.addData.name===""){
+						alert('请输入姓名');
+						return;
+					}else if(this.addData.age<=0){
+						alert('请输入正确的年龄');
+						return;
+					}else if(this.addData.phone===""){
+						alert('请输入手机号');
+						return;
+
+					}else{
+						alert('添加成功!');
+
+					}
+				
+					//添加数据
+					this.person.unshift(this.addData);
+					this.addData={name:'',sex:'男',age:0,phone:''}
+					
+				},
+				checkOut(index){
+					this.person.splice(index,1);
+					
+					
+				}
+			}
+		})
+	</script>
+
+</body>
+</html>

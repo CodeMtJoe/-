@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<style type="text/css">
+		*{;padding: 0;}
+		#box{width: 500px;}
+		#dms{color: #CC1111;font-size: 30px;text-align: center;}
+		li{list-style: none;float: left;padding: 10px;}
+		li a img{
+			width: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div id='box'>
+		<!-- 大图描述 -->
+		<p id="dms">白天</p>
+		<!-- 大图展示 -->
+		<img id="img_big" src="img/1.jpg" width="500"  >
+		<!-- 小图展示 -->
+		<ul id="sm_ul">
+			<li><a href="img/1.jpg" title="白天"><img src="img/1.jpg" alt="白天"></a></li>
+			<li><a href="img/2.jpg" title="夜晚"><img src="img/2.jpg" alt=""></a></li>
+			<li><a href="img/3.jpg" title="武士"><img src="img/3.jpg" alt=""></a></li>
+			<li><a href="img/4.jpg" title="简约"><img src="img/4.jpg" alt=""></a></li>
+			<li><a href="img/5.jpg" title="可乐"><img src="img/5.jpg" alt=""></a></li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		window.onload=function(){
+			function $$(name){
+				return document.getElementById(name);
+			}
+		
+			//获取标签
+			var imgBig=$$("img_big"),dms=$$("dms"),smUl=$$("sm_ul");
+			var aList=smUl.getElementsByTagName("a");
+			//绑定事件
+			for(var i=0;i<aList.length;i++){
+				aList[i].onmouseover=function(){
+					imgBig.src=this.href;
+					dms.innerHTML=this.title;
+					
+				}
+				aList[i].onclick=function(){
+					alert('还在更新中,请期待!!');
+					return false;//不会打开链接
+				}
+			}
+			
+			
+		}
+	</script>
+</body>
+</html>

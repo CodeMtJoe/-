@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>弹性盒子布局实战</title>
+	<style type="text/css">
+		html,div,body{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			list-style: none;
+			padding-inline-start:0px;
+			
+			
+		}
+		a{
+			text-decoration: none;
+			
+		}
+		.top-nav-box .top-nav .top-nav-item a{
+			color: #FFFFFF;
+		}
+		.top-warp{
+			display: flex;
+			font-size: 16px;
+			height: 60px;
+			line-height: 60px;
+			background-color: #245269;
+			flex: 1;
+		}
+		.top-warp .top-r,.top-warp .top-l{
+			flex: 0 0 60px;
+			
+		}
+		.top-warp .top-m{
+			flex: 1;
+			text-align: center;
+		}
+		.top-warp .top-m input{
+			width: 90%;
+			height: 35px;
+			font-size: 1rem;
+			border-radius: 15px;	
+		}
+		.top-warp .top-l{
+			color: #FFFFFF;
+			padding-left: 10px;
+		}
+		
+		/* 顶部导航 */
+		.top-nav-box {
+			display: flex;
+			justify-content: space-around;
+			background-color: #245269;
+			
+			
+		} */
+		.top-nav-box{
+			display: flex;
+			background-color: #245269;
+			justify-content: space-around;
+			
+		}
+		
+		.top-nav-box .top-nav .top-nav-item{
+			flex: 1;
+			
+		}
+		.img{
+			width: 40px;
+			height: 40px;
+			background-color: #761C19;
+			border-radius: 50%;
+			margin: 0 auto;
+		}
+		.top_type_box{
+			display: flex;
+			
+			//justify-content: space-around;
+			//align-content: space-around;
+			flex-flow: row wrap; 
+			
+		}
+		.top_type_item{
+			width: 90px;
+			//text-align: center;
+		}
+		span{
+			display: block;
+			text-align: center;
+			
+		}
+	</style>
+</head>
+<body>
+	<!-- 头部 -->
+	<div class="top-warp">
+		<div class="top-l">键盘怪</div>
+		<div class="top-m"><input type=""id="" size="30" value="" placeholder="输入内容"/></div>
+		<div class="top-r"><button type="button">搜索</button></div>
+	</div>
+	<!-- 头部导航条 -->
+	<div class="top-nav-box">
+		<ul class="top-nav">
+			<li class="top-nav-item"><a href="#">推荐</a></li>
+		</ul>
+		<ul class="top-nav">
+			<li class="top-nav-item"><a href="#">发布</a></li>
+		</ul>
+		<ul class="top-nav">
+			<li class="top-nav-item"><a href="#">我的</a></li>
+		</ul>
+		<ul class="top-nav">
+			<li class="top-nav-item"><a href="#">关于</a></li>
+		</ul>
+		<ul class="top-nav">
+			<li class="top-nav-item"><a href="#">哈哈</a></li>
+		</ul>
+	</div>
+	<!-- 头部选项-->
+	<div class="top_type_box">
+		<ul class="top_type">
+			<li class="top_type_item"><a href="#">
+					<div class="img"></div>
+					<span>类型</span>
+				</a></li>
+		</ul>
+		<ul class="top_type">
+			<li class="top_type_item"><a href="#">
+					<div class="img"></div>
+					<span>类型</span>
+				</a></li>
+		</ul>
+		<ul class="top_type">
+			<li class="top_type_item"><a href="#">
+					<div class="img"></div>
+					<span>类型</span>
+				</a></li>
+		</ul>
+		<ul class="top_type">
+			<li class="top_type_item"><a href="#">
+					<div class="img"></div>
+					<span>类型</span>
+				</a></li>
+		</ul>
+		<ul class="top_type">
+			<li class="top_type_item"><a href="#">
+					<div class="img"></div>
+					<span>类型</span>
+				</a></li>
+		</ul>
+		<ul class="top_type">
+			<li class="top_type_item"><a href="#">
+					<div class="img"></div>
+					<span>类型</span>
+				</a></li>
+		</ul>
+		<ul class="top_type">
+			<li class="top_type_item"><a href="#">
+					<div class="img"></div>
+					<span>类型</span>
+				</a></li>
+		</ul>
+		<ul class="top_type">
+			<li class="top_type_item"><a href="#">
+					<div class="img"></div>
+					<span>类型</span>
+				</a></li>
+		</ul>
+	</div>
+</body>
+</html>
